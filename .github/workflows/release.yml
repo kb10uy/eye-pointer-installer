@@ -3,6 +3,12 @@ name: "Build unitypackage"
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
+env:
+  packageName: "org.kb10uy.eye-pointer-installer"
+
 jobs:
   build:
     runs-on: "ubuntu-latest"
