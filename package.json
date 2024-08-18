@@ -1,0 +1,20 @@
+{
+  "name": "org.kb10uy.eye-pointer-installer",
+  "displayName": "Automatic EyePointer Installer",
+  "version": "1.0.0",
+  "unity": "2022.3",
+  "description": "It automates eye bone constrait setup for Siromori's EyePointer.",
+  "documentationUrl": "https://github.com/kb10uy/eye-pointer-installer",
+  "license": "Apache-2.0 OR MIT",
+  "licenseUrl": "https://github.com/kb10uy/eye-pointer-installer/blob/main/LICENSE",
+  "vrchatVersion": "2022.1.1",
+  "author": {
+    "name": "kb10uy",
+    "email": "kb10uy@kb10uy.org",
+    "url": "https://kb10uy.org"
+  },
+  "vpmDependencies": {
+    "com.vrchat.avatars" : ">=3.7.0",
+    "nadena.dev.ndmf": ">=1.4.0"
+  }
+}
