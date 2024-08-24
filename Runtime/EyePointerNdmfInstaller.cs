@@ -6,7 +6,7 @@ namespace KusakaFactory.EyePointerInstaller.Runtime
     [AddComponentMenu("KusakaFactory/Automatic EyePointer Installer")]
     public sealed class EyePointerNdmfInstaller : MonoBehaviour, IEditorOnly
     {
-        [Tooltip("Use VRC Aim Constraint instead of Unity's standard Aim Constraint. May causes incompatibility with specific versions of EyePointer.")]
+        [Tooltip("Unity 標準の Aim Constraint ではなく VRC Aim Constraint を使用する。EyePointer 1.2 以降で動作します")]
         public bool UseVRCConstraint = false;
     }
 }
