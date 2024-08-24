@@ -15,26 +15,29 @@ namespace KusakaFactory.EyePointerInstaller
 
         protected override void Execute(BuildContext context)
         {
-            var installer = context.AvatarRootObject.GetComponentInChildren<EyePointerNdmfInstaller>();
+            var installer = context.GetState(InstallerState.Initializer).Installer;
             if (installer == null) return;
 
-            var (originalLeftEye, originalRightEye) = LocateEyeBones(context.AvatarRootObject);
-            var dummyLeftEye = SubstituteEyeBone(originalLeftEye);
-            var dummyRightEye = SubstituteEyeBone(originalRightEye);
+            var (constrainedLeftEye, constrainedRightEye) = LocateEyeBones(context.AvatarRootObject);
+            if (installer.InsertDummyEyeBones)
+            {
+                constrainedLeftEye = SubstituteEyeBone(constrainedLeftEye);
+                constrainedRightEye = SubstituteEyeBone(constrainedRightEye);
+            }
 
             var target = LocateEyePointerTarget(installer);
             if (installer.UseVRCConstraint)
             {
-                SetupConstaintsWithVRCVariant(target.transform, dummyLeftEye);
-                SetupConstaintsWithVRCVariant(target.transform, dummyRightEye);
+                SetupConstaintsWithVRCVariant(target.transform, constrainedLeftEye);
+                SetupConstaintsWithVRCVariant(target.transform, constrainedRightEye);
             }
             else
             {
-                SetupConstaintsWithUnityVariant(target.transform, dummyLeftEye);
-                SetupConstaintsWithUnityVariant(target.transform, dummyRightEye);
+                SetupConstaintsWithUnityVariant(target.transform, constrainedLeftEye);
+                SetupConstaintsWithUnityVariant(target.transform, constrainedRightEye);
             }
 
-            ReplaceAvatarDescriptorEyeBones(context.AvatarDescriptor, dummyLeftEye, dummyRightEye);
+            ReplaceAvatarDescriptorEyeBones(context.AvatarDescriptor, constrainedLeftEye, constrainedRightEye);
 
             Object.DestroyImmediate(installer);
         }
