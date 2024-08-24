@@ -1,7 +1,7 @@
 {
   "name": "org.kb10uy.eye-pointer-installer",
   "displayName": "Automatic EyePointer Installer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "unity": "2022.3",
   "description": "It automates eye bone constrait setup for Siromori's EyePointer.",
   "documentationUrl": "https://github.com/kb10uy/eye-pointer-installer",
